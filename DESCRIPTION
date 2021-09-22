@@ -1,0 +1,14 @@
+Title: Paddle Sampling for Stat 200
+ShortName: Paddle Sampling
+Date: 2021-2-22
+Lifecycle: experimental
+Authors@R: c(
+    person(given = "Neil", family = "Hatfield", email = "njh5464@psu.edu", role = c("aut", "cre"))
+  )
+Description: Sampling app for STAT 200 using box of beads and paddle.
+DisplayMode: Normal
+URL: https://psu-eberly.shinyapps.io/stat200Sampling
+BugReports: https://github.com/EducationShinyAppTeam/stat200Sampling/issues
+License: CC-BY-NC-SA-4.0
+Tags: simulation
+Type: Shiny
