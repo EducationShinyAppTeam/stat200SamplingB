@@ -114,16 +114,21 @@ ui <- list(
         tabItem(
           tabName = "lab1",
           h2("Bead Box for Lab 3.1"),
-          p("The box below represents the population of Centre County,
+          p("Below is a box that contains some number of blue-square beads
+            (representing persons of color) and some number of red-triangular 
+            beads (representing white persons). This box represents people
+            living in Centre County, PA in 2020. Your goal is to figure out what
+            the proportion of blue-square beads is for this box's mixture."),
+          p(tags$del("The box below represents the population of Centre County,
             Pennsylvania, which contains State College and Penn State. Each bead
             (shape) in the box represents a different person who lives in Centre
             County. The blue-square beads represent persons of color while
-            red-triangular beads represent persons who are white."),
-          p("The box contains some number of blue-square beads (persons of color)
+            red-triangular beads represent persons who are white.")),
+          p(tags$s("The box contains some number of blue-square beads (persons of color)
             and some number of red-triangular beads (white persons) based upon 
             figures from the US Census Bureau. Your goal is to figure out what
             proportion of Centre County's population are persons of color (the
-            blue-square beads)."),
+            blue-square beads).")),
           p("When you are ready to take a random sample of 30 beads from the box,
             click the Draw a Sample button. Your random sample will appear below
             the black line in a nice grid."),
@@ -153,16 +158,18 @@ ui <- list(
         tabItem(
           tabName = "lab2",
           h2("Bead Box for Lab 3.2"),
-          p("The box below represents Penn State students at the Unversity Park
+          p("Below is a box that contains some number of green-square beads and
+            some number of yellow-triangular beads."),
+          p(tags$s("The box below represents Penn State students at the Unversity Park
             (UP) campus. Each bead represents a different student. The color and
             shape of the bead indicates each student's COVID-19 vaccination
             status: yellow-triangular beads are vaccinated students while green-
-            square beads are unvaccinated students."),
-          p("The box contains some number of yellow-triangular beads 
+            square beads are unvaccinated students.")),
+          p(tags$s("The box contains some number of yellow-triangular beads 
             (vaccinated students) and green-square beads (unvaccinated students)
             based upon university figures. Your goal is to figure out what
             proportion of students at the University Park campus of Penn State
-            are vaccinated."),
+            are vaccinated.")),
           p("When you are ready to take a random sample of 30 beads from the box,
             click the Draw a Sample button. Your random sample will appear below
             the black line in a nice grid."),
