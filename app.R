@@ -5,15 +5,9 @@ library(shinydashboard)
 library(boastUtils)
 library(ggplot2)
 
-# App Metadata ----
-APP_TITLE <<- "Paddle Sampling for Stat 200"
-APP_DESCP <<- paste(
-  "Sampling app for STAT 200 using box of beads and paddle"
-)
-
 # Global Constants and functions ----
 N <- 10000
-prop1 <- 0.55
+prop1 <- 0.1704
 lab1Pop <- data.frame(
   color = rep(c("blue", "red"), times = c(prop1 * N, (1 - prop1) * N)),
   x = runif(N, min = -5, max = 5),
@@ -21,7 +15,7 @@ lab1Pop <- data.frame(
 )
 lab1Pop <- lab1Pop[sample.int(nrow(lab1Pop)),]
 
-prop2 <- 0.3
+prop2 <- 0.2
 lab2Pop <- data.frame(
   color = rep(c("green", "yellow"), times = c(prop2 * N, (1 - prop2) * N)),
   x = runif(N, min = -5, max = 5),
@@ -30,13 +24,20 @@ lab2Pop <- data.frame(
 lab2Pop <- lab2Pop[sample.int(nrow(lab2Pop)),]
 
 ## Main Plot
-mainPlot1 <- ggplot(data = lab1Pop,
-                   mapping = aes(x = x, y = y, color = color, shape = color)) +
+mainPlot1 <- ggplot(
+  data = lab1Pop,
+  mapping = aes(x = x, y = y, color = color, shape = color)
+) +
   geom_point(size = 2) +
-  scale_color_manual(values = c("blue" = boastUtils::psuPalette[1],
-                                "red" = boastUtils::psuPalette[2])) +
-  scale_shape_manual(values = c("blue" = 15,
-                                "red" = 17)) +
+  scale_color_manual(
+    values = c(
+      "blue" = boastUtils::psuPalette[1],
+      "red" = boastUtils::psuPalette[2]
+    )
+  ) +
+  scale_shape_manual(
+    values = c("blue" = 15, "red" = 17)
+  ) +
   geom_hline(yintercept = -0.5, size = 2, color = "black") +
   theme_bw() +
   theme(
@@ -49,13 +50,20 @@ mainPlot1 <- ggplot(data = lab1Pop,
   xlab(NULL) +
   ylab(NULL)
 
-mainPlot2 <- ggplot(data = lab2Pop,
-                    mapping = aes(x = x, y = y, color = color, shape = color)) +
+mainPlot2 <- ggplot(
+  data = lab2Pop,
+  mapping = aes(x = x, y = y, color = color, shape = color)
+) +
   geom_point(size = 2) +
-  scale_color_manual(values = c("green" = boastUtils::boastPalette[3],
-                                "yellow" = boastUtils::boastPalette[6])) +
-  scale_shape_manual(values = c("green" = 15,
-                                "yellow" = 17)) +
+  scale_color_manual(
+    values = c(
+      "green" = boastUtils::boastPalette[3],
+      "yellow" = boastUtils::boastPalette[6]
+    )
+  ) +
+  scale_shape_manual(
+    values = c("green" = 15, "yellow" = 17)
+  ) +
   geom_hline(yintercept = -0.5, size = 2, color = "black") +
   theme_bw() +
   theme(
@@ -71,7 +79,7 @@ mainPlot2 <- ggplot(data = lab2Pop,
 # Define the UI ----
 ui <- list(
   dashboardPage(
-    skin = "blue",
+    skin = "purple",
     ## Header ----
     dashboardHeader(
       title = "STAT 200 Sampling",
@@ -87,8 +95,10 @@ ui <- list(
         menuItem("Bead Box for Lab 3.2", tabName = "lab2", icon = icon("flask")),
         menuItem("References", tabName = "references", icon = icon("leanpub"))
       ),
-      tags$div(class = "sidebar-logo",
-               boastUtils::psu_eberly_logo("reversed"))
+      tags$div(
+        class = "sidebar-logo",
+        boastUtils::sidebarFooter()
+      )
     ),
     #Dashboard Body
     dashboardBody(
@@ -104,9 +114,16 @@ ui <- list(
         tabItem(
           tabName = "lab1",
           h2("Bead Box for Lab 3.1"),
-          p("Below is a box that contains some number of blue-square beads and
-            some number of red-triangular beads. Your goal is to figure out what
-            the proportion of blue-square beads is for this box's mixture."),
+          p("The box below represents the population of Centre County,
+            Pennsylvania, which contains State College and Penn State. Each bead
+            (shape) in the box represents a different person who lives in Centre
+            County. The blue-square beads represent persons of color while
+            red-triangular beads represent persons who are white."),
+          p("The box contains some number of blue-square beads (persons of color)
+            and some number of red-triangular beads (white persons) based upon 
+            figures from the US Census Bureau. Your goal is to figure out what
+            proportion of Centre County's population are persons of color (the
+            blue-square beads)."),
           p("When you are ready to take a random sample of 30 beads from the box,
             click the Draw a Sample button. Your random sample will appear below
             the black line in a nice grid."),
@@ -136,8 +153,16 @@ ui <- list(
         tabItem(
           tabName = "lab2",
           h2("Bead Box for Lab 3.2"),
-          p("Below is a box that contains some number of green-square beads and
-            some number of yellow-triangular beads."),
+          p("The box below represents Penn State students at the Unversity Park
+            (UP) campus. Each bead represents a different student. The color and
+            shape of the bead indicates each student's COVID-19 vaccination
+            status: yellow-triangular beads are vaccinated students while green-
+            square beads are unvaccinated students."),
+          p("The box contains some number of yellow-triangular beads 
+            (vaccinated students) and green-square beads (unvaccinated students)
+            based upon university figures. Your goal is to figure out what
+            proportion of students at the University Park campus of Penn State
+            are vaccinated."),
           p("When you are ready to take a random sample of 30 beads from the box,
             click the Draw a Sample button. Your random sample will appear below
             the black line in a nice grid."),

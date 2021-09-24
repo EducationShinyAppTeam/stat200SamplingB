@@ -1,14 +1,19 @@
-Title: Paddle Sampling for Stat 200
-ShortName: Paddle Sampling
-Date: 2021-2-22
+Title: Paddle Sampling for Stat 200 Version B
+ShortName: Paddle Sampling B
+Date: 2021-09-22
 Lifecycle: experimental
 Authors@R: c(
     person(given = "Neil", family = "Hatfield", email = "njh5464@psu.edu", role = c("aut", "cre"))
   )
+Chapter: Not Assigned
 Description: Sampling app for STAT 200 using box of beads and paddle.
+LearningObjectives: c(
+    "The student will learn to understand combinations permutations, and the multiplication principle using the explore page.",
+    "The student will learn to understand Concept B as description y."
+  )
 DisplayMode: Normal
-URL: https://psu-eberly.shinyapps.io/stat200Sampling
-BugReports: https://github.com/EducationShinyAppTeam/stat200Sampling/issues
+URL: https://psu-eberly.shinyapps.io/stat200SamplingB
+BugReports: https://github.com/EducationShinyAppTeam/stat200SamplingB/issues
 License: CC-BY-NC-SA-4.0
 Tags: simulation
 Type: Shiny
